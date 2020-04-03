@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+  <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Liliana Carvalho</title>
+    <link rel="stylesheet" href="/css/default.css" type="text/css">
+    <!-- <script type="text/javascript" src="./js/default.js"></script> -->
+    <link href="https://fonts.googleapis.com/css?family=Chathura:100,300,400,700,800|Marvel:400,400i,700,700i|Nunito:200,400,400i,600,600i,700,700i,800,800i,900,900i|Oswald:200,300,400,500,600,700|Roboto+Condensed:300,300i,400,400i,700,700i|Roboto+Slab:100,200,300,400,500,600,700,900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="navigation">
+      <div class="main-menu-container">
+        <ul class="main-menu">
+          <li><a href="#sound" onClick="goTo(this, 'sound'); return false;">sound</a></li>
+          <li><a href="#space" onClick="goTo(this, 'space'); return false;">space</a></li>
+          <li><a href="#about" onClick="goTo(this, 'about')">about</a></li>
+          <li><a href="#news" onClick="goTo(this, 'news')">news</a></li>
+          <li><a href="#contact" onClick="goTo(this, 'contact')">contact</a></li>
+        </ul>
+      </div>
+
+      <div class="sub-menu-container">
+        <ul class="sub-menu sub-menu-sound">
+          <li><a href="#releases" onClick="goTo(this, 'releases')">releases</a></li>
+          <li><a href="#audio" onClick="goTo(this, 'audio')">audio</a></li>
+          <li><a href="#radio" onClick="goTo(this, 'radio')">radio</a></li>
+          <li class="mobile-only">&nbsp;</li>
+          <li class="mobile-only"><a href="#" onClick="goBack(this)">back</a></li>
+        </ul>
+
+        <ul class="sub-menu sub-menu-space">
+          <li><a href="#installations" onClick="goTo(this, 'installations')">installations</a></li>
+          <li><a href="#performance" onClick="goTo(this, 'performance')">performance</a></li>
+          <li><a href="#research" onClick="goTo(this, 'research')">research</a></li>
+          <li class="mobile-only">&nbsp;</li>
+          <li class="mobile-only"><a href="#" onClick="goBack(this)">back</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="header">
+      <div class="single-container">
+        <div class="mobile-menu-cta" onClick="openMobileMenu()">menu</div>
+        <a href="/" target="_top">
+          <span class="name-logo">liliana carvalho</span>
+        </a>
+      </div>
+    </div><!-- /#header -->
+
+    <div class="main">
+      <div class="double-container">
+        <div id="contents">aslklsaksalkas
+        </div><!-- /#contents -->
+      </div>
+    </div>
+
+    <script>
+      function openMobileMenu (close) {
+        if (!document.body.classList.contains('mobile-view')) {
+          return false;
+        }
+
+        if (close || document.body.classList.contains('mobile-menu-open')) {
+          document.body.classList.remove('mobile-menu-open');
+        } else {
+          document.body.classList.add('mobile-menu-open');
+          document.querySelector('.mobile-hide').classList.remove('mobile-hide');
+          [].forEach.call(document.querySelectorAll('.sub-menu'), function(ele) {
+            ele.classList.add('mobile-hide');
+          });
+        }
+      }
+
+      function goBack () {
+        document.querySelector('.mobile-hide').classList.remove('mobile-hide');
+
+        [].forEach.call(document.querySelectorAll('.sub-menu'), function(ele) {
+          ele.classList.add('mobile-hide');
+        });
+      }
+
+      function goTo (caller, content) {
+        [].forEach.call(caller.parentNode.parentNode.querySelectorAll('a'), function(ele) {
+          ele.classList.remove('selected');
+        });
+        caller.classList.add('selected');
+
+        if (content.indexOf('/') !== -1) {
+          includeHTML(content);
+          return false;
+        }
+
+        if (caller.parentNode.parentNode.classList.contains('main-menu')) {
+          [].forEach.call(document.querySelectorAll('.sub-menu'), function(ele) {
+            [].forEach.call(ele.querySelectorAll('a'), function (link) { link.classList.remove('selected')});
+            ele.classList.remove('element-show');
+          });
+        }
+
+        var subMenu = document.querySelector('.sub-menu-' + content);
+        if (subMenu) {
+          caller.parentNode.parentNode.parentNode.classList.add('mobile-hide');
+          subMenu.classList.remove('mobile-hide');
+          subMenu.classList.add('element-show');
+          if (!document.body.classList.contains('mobile-view')) subMenu.querySelector('a').click();
+        } else {
+          openMobileMenu(true);
+          includeHTML(content);
+        }
+
+        return false;
+      }
+
+      function includeHTML(filename) {
+        var file = '/partials/' + filename + '.html'
+        var element = document.getElementById('contents')
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4) {
+            if (this.status == 200) {element.innerHTML = this.responseText;}
+            if (this.status == 404) {element.innerHTML = "Page not found.";}
+          }
+        }
+        xhttp.open("GET", file, true);
+        xhttp.send();
+      }
+
+      window.onresize = function () {
+        var vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        if (vw < 800) {
+          document.body.classList.add('mobile-view');
+        } else {
+          document.body.classList.remove('mobile-view');
+          document.querySelector('.selected').click();
+        }
+      }
+    </script>
+  </body>
+</html>

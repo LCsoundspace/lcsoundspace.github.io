@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  vertical-align: baseline;
+}
+
+body {
+  font-family:
+    'Marvel',
+    verdana,
+    geneva,
+    helvetica,
+    arial,
+    sans-serif;
+  line-height: 135%;
+  text-align: left;
+  color: #333;
+}
+
+a, a:visited, a:link, a:active {
+  color: #333;
+  text-decoration: none;
+}
+
+a img {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+img, table {
+  border-width: 0;
+  border-style: none;
+  border-color: #fff;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+td {
+  text-align: left;
+  vertical-align: top;
+}
+
+sup {
+  vertical-align: super;
+}
+
+input {
+  vertical-align: middle;
+  color: #000;
+}
+
+textarea {
+  color: #000;
+}
+
+button {
+  border: 0;
+}
+
+
+/* 03: headding
+----------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Marvel', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1em;
+}
+
+
+/* 04: structured text
+----------------------------------------- */
+em, strong, dfn, code, samp, kbd, var, blockquote, q, cite, pre, abbr, acronym, ins, th {
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* 05: font style elements
+----------------------------------------- */
+b, strong { font-weight: bold; }
+i, em { font-style: italic; }
+del { text-decoration: line-through; }
+
+
+/* 06: list
+----------------------------------------- */
+ul, ol, dl, menu, dir, li, dt, dd {
+  list-style: none;
+}

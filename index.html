@@ -125,7 +125,7 @@
         xhttp.send();
       }
 
-      window.onresize = function () {
+      function checkMobile () {
         var vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
         if (vw < 800) {
           document.body.classList.add('mobile-view');
@@ -134,6 +134,10 @@
           document.querySelector('.selected').click();
         }
       }
+
+      window.onresize = checkMobile();
+
+      checkMobile();
     </script>
   </body>
 </html>

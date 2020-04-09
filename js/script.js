@@ -72,6 +72,9 @@ function includeHTML (filename, saveHistory = true) {
   var file = '/partials/' + filename + '.html'
   var element = document.getElementById('contents')
   var xhttp = new XMLHttpRequest();
+
+  element.innerHTML = '<div class="loading"><div class="load-1"></div><div class="load-2"></div><div class="load-3"></div></div>';
+
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4) {
       if (this.status == 200) {element.innerHTML = this.responseText;}

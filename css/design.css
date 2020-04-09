@@ -49,6 +49,7 @@
   -moz-tap-highlight-color:transparent;
   -o-tap-highlight-color:transparent;
   -webkit-tap-highlight-color:transparent;
+  background-color: white;
   border-top: 1px solid #D3D3D3;
   cursor: pointer;
   font-family: 'Roboto Slab', serif;
@@ -361,7 +362,9 @@
 .detail-titles {
   background-color: white;
   position: sticky;
-  top: 123px;
+  top: 122px;
+  margin: -1px;
+  padding: 1px;
 }
 
 .detail-gallery {

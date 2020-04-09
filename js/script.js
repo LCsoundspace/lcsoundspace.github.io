@@ -78,7 +78,7 @@ function includeHTML (filename, saveHistory = true) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4) {
       if (this.status == 200) {element.innerHTML = this.responseText;}
-      if (this.status == 404) {element.innerHTML = "Page not found.";}
+      if (this.status == 404) {element.innerHTML = "<h3>more information soon ...</h3>";}
     }
   }
   xhttp.open("GET", file, true);

@@ -11,9 +11,19 @@
   z-index: 10;
 }
 
+@keyframes open {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: calc(100vh - 123px);
+  }
+}
+
 .mobile-menu-open .header {
-  top: auto;
+  animation: open 0.1s linear;
   bottom: 0;
+  top: auto;
 }
 
 .single-container {
@@ -36,15 +46,20 @@
 }
 
 .mobile-menu-cta {
+  -moz-tap-highlight-color:transparent;
+  -o-tap-highlight-color:transparent;
+  -webkit-tap-highlight-color:transparent;
   border-top: 1px solid #D3D3D3;
   cursor: pointer;
   font-family: 'Roboto Slab', serif;
   font-size: 14px;
   font-weight: 100;
+  margin-top: -2px;
   padding: 5px 0 10px;
   position: absolute;
+  tap-highlight-color:transparent;
   text-transform: lowercase;
-  top: -1px;
+  top: 0;
   width: 100%;
 }
 

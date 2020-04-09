@@ -21,6 +21,8 @@ function goBack () {
   [].forEach.call(document.querySelectorAll('.sub-menu'), function(ele) {
     ele.classList.add('mobile-hide');
   });
+
+  return false;
 }
 
 function selectMenuItem (menu, link) {

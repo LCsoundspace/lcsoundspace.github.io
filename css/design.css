@@ -6,17 +6,17 @@
   background-color: white;
   position: fixed;
   text-align: center;
-  top: 0;
+  bottom: calc(100% - 123px);
   width: 100%;
   z-index: 10;
 }
 
 @keyframes open {
   0% {
-    top: 0;
+    bottom: calc(100% - 123px);
   }
   100% {
-    top: calc(100% - 123px);
+    bottom: 0;
   }
 }
 

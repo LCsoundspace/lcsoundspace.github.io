@@ -228,6 +228,11 @@
   border-top: 1px solid #D3D3D3;
 }
 
+.about-block .item-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
 
 .about-block .date-resume {
   margin-right: 5px;
@@ -243,6 +248,12 @@
     position: absolute;
     left: -90px;
     margin: 0;
+  }
+
+  .about-block .item-image {
+    width: 95%;
+    height: auto;
+    margin-bottom: 0;
   }
 }
 

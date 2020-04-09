@@ -21,7 +21,7 @@
 }
 
 .mobile-menu-open .header {
-  animation: open 0.1s linear;
+  animation: open 0.5s ease;
   bottom: 0;
   top: auto;
 }

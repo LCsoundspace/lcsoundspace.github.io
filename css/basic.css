@@ -32,6 +32,7 @@ img, table {
   border-width: 0;
   border-style: none;
   border-color: #fff;
+  max-width: 100%;
 }
 
 img {

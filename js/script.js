@@ -97,6 +97,37 @@ function checkMobile () {
   }
 }
 
+function nextPicture (element) {
+  var addToNext = false;
+  var navItems = element.querySelectorAll('.detail-gallery-marker');
+  var imgItems = element.querySelectorAll('.detail-gallery-item');
+
+  [].forEach.call(navItems, function (ele) {
+    ele.classList.remove('active');
+  });
+
+  [].forEach.call(imgItems, function (ele, index) {
+    if (addToNext) {
+      ele.classList.add('visible-gallery-item');
+      navItems[index].classList.add('active');
+      addToNext = false;
+      return;
+    }
+
+    if (ele.classList.contains('visible-gallery-item')) {
+      ele.classList.remove('visible-gallery-item');
+      addToNext = true;
+    }
+  })
+
+  if (addToNext) {
+    element.querySelector('.detail-gallery-item').classList.add('visible-gallery-item');
+    navItems[0].classList.add('active');
+  }
+
+  return false;
+}
+
 window.onresize = function () {
   checkMobile();
 }

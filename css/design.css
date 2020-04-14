@@ -125,9 +125,27 @@
   display: none;
 }
 
+.navigation a {
+  opacity: 0;
+}
+
+@keyframes show {
+  0%, 50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .mobile-menu-open .navigation {
-  z-index: 1;
+  z-index: 3;
   display: block;
+}
+
+.mobile-menu-open .navigation a {
+  animation: show 0.5s ease;
+  opacity: 1;
 }
 
 .navigation a {
@@ -158,6 +176,10 @@
     text-align: left;
     line-height: normal;
     z-index: 1;
+  }
+
+  .navigation a {
+    opacity: 1;
   }
 
   .mobile-menu-open .navigation {
@@ -378,7 +400,7 @@
   padding: 1px;
   position: sticky;
   top: 122px;
-  z-index: 10;
+  z-index: 2;
 }
 
 .detail-gallery {
